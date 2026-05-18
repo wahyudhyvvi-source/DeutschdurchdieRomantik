@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Deutsch durch die Romantik | Gedichte & Interpretation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #f7f3eb; font-family: 'Inter', sans-serif; color: #2c2418; line-height: 1.6; overflow-x: hidden; transition: background 0.3s ease, color 0.3s ease; }
+    :root { --cream: #faf6ef; --warm-beige: #e8ddce; --coffee-brown: #5c3e2b; --dark-roast: #3a281c; --gold-leaf: #c9a86b; --old-rose: #b87c5a; }
+    body.dark { background: #1a1410; color: #f0e6d8; }
+    body.dark .navbar { background: rgba(26, 20, 16, 0.95); border-bottom-color: #5c3e2b; }
+    body.dark .logo, body.dark .logo span { color: #e8cfb5; }
+    body.dark .page-btn, body.dark .btn-elegant { color: #e8cfb5; border-color: #c9a86b; }
+    body.dark .page-btn.active { background: #c9a86b; color: #1a1410; }
+    body.dark .author-card, body.dark .poem-menu-card, body.dark .poem-full-card, 
+    body.dark .quiz-section, body.dark .quiz-item, body.dark .interpretation-card,
+    body.dark .about-card, body.dark .tool-item { background: #2a221c; border-color: #5c3e2b; color: #f0e6d8; }
+    body.dark .author-bio, body.dark .poem-full-text, body.dark .interpretation-content,
+    body.dark .about-text { background: #3a2c1f; color: #f0e6d8; }
+    body.dark .quiz-option { background: #3a2c1f; border-color: #c9a86b; color: #f0e6d8; }
+    body.dark .quiz-option:hover { background: #c9a86b; color: #1a1410; }
+    body.dark .hero-content { background: rgba(26, 20, 16, 0.85); color: #f0e6d8; }
+    body.dark .hero-content h1, body.dark .hero-content .quote { color: #f0e6d8; }
+    body.dark footer { background: #0f0c09; color: #c9a86b; }
+    body.dark .section-title, body.dark .poem-full-title, body.dark .quiz-title, 
+    body.dark .quiz-question, body.dark .about-subtitle { color: #e8cfb5; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--warm-beige); }
+    ::-webkit-scrollbar-thumb { background: var(--coffee-brown); border-radius: 10px; }
+    body.dark ::-webkit-scrollbar-track { background: #2a221c; }
+    body.dark ::-webkit-scrollbar-thumb { background: #c9a86b; }
+    .navbar { position: sticky; top: 0; z-index: 100; background: rgba(250, 246, 239, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(200, 170, 120, 0.3); padding: 1rem 2rem; }
+    .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; color: var(--dark-roast); }
+    .logo span { color: var(--gold-leaf); font-style: italic; }
+    .page-nav { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+    .page-btn { background: transparent; border: 1.5px solid var(--gold-leaf); padding: 0.5rem 1.2rem; border-radius: 40px; cursor: pointer; transition: 0.25s; color: var(--coffee-brown); font-family: inherit; font-weight: 500; font-size: 0.85rem; }
+    .page-btn:hover, .page-btn.active { background: var(--coffee-brown); color: white; border-color: var(--coffee-brown); }
+    .btn-elegant { background: transparent; border: 1.5px solid var(--gold-leaf); padding: 0.4rem 1.2rem; border-radius: 40px; cursor: pointer; transition: 0.25s; color: var(--coffee-brown); font-family: inherit; }
+    .btn-elegant:hover { background: var(--gold-leaf); color: white; border-color: var(--gold-leaf); }
+    .page { display: none; animation: fadeIn 0.4s ease; min-height: 80vh; }
+    .page.active-page { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .hero { min-height: 60vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; border-radius: 0 0 48px 48px; margin-bottom: 2rem; overflow: hidden; }
+    .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; filter: brightness(0.6); }
+    .hero::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(60,40,25,0.4), rgba(30,20,12,0.5)); z-index: -1; }
+    .hero-content { background: rgba(250, 246, 239, 0.85); backdrop-filter: blur(10px); padding: 2rem 3rem; border-radius: 48px; max-width: 85%; }
+    .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--dark-roast); }
+    .hero-content .quote { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--old-rose); }
+    .container { max-width: 1300px; margin: 0 auto; padding: 0 2rem; }
+    section { padding: 2rem 0 4rem 0; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--dark-roast); border-left: 4px solid var(--gold-leaf); padding-left: 1rem; margin-bottom: 2rem; }
+    .grid-2, .grid-3, .grid-4 { display: grid; gap: 2rem; }
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .author-card { background: white; border-radius: 24px; padding: 1.5rem; text-align: center; border: 1px solid #efe2d0; transition: 0.3s; cursor: pointer; height: 100%; display: flex; flex-direction: column; }
+    .author-card:hover { transform: translateY(-5px); box-shadow: 0 12px 28px rgba(0,0,0,0.1); border-color: var(--gold-leaf); }
+    .author-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 20px; border: 2px solid var(--gold-leaf); margin-bottom: 1rem; background: #e8ddce; }
+    .author-bio { font-size: 0.85rem; background: #fef8ef; padding: 0.9rem; border-radius: 16px; text-align: justify; margin-top: 0.5rem; flex-grow: 1; line-height: 1.6; }
+    .poem-menu-card { background: white; border-radius: 24px; padding: 1.5rem; text-align: center; border: 1px solid #efe2d0; transition: 0.3s; cursor: pointer; }
+    .poem-menu-card:hover { transform: translateY(-5px); box-shadow: 0 12px 28px rgba(0,0,0,0.1); border-color: var(--gold-leaf); }
+    .poem-menu-icon { font-size: 2.5rem; color: var(--gold-leaf); margin-bottom: 0.5rem; }
+    .poem-page-container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+    .poem-full-card { background: white; border-radius: 32px; padding: 2.5rem; border: 1px solid #efe2d0; box-shadow: 0 12px 28px rgba(0,0,0,0.08); }
+    .nav-buttons { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; gap: 1rem; flex-wrap: wrap; }
+    .nav-btn { background: transparent; border: 1.5px solid var(--gold-leaf); padding: 0.6rem 1.2rem; border-radius: 40px; cursor: pointer; transition: 0.25s; color: var(--coffee-brown); font-family: inherit; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .nav-btn:hover { background: var(--gold-leaf); color: white; border-color: var(--gold-leaf); }
+    .back-btn { background: transparent; border: 1.5px solid var(--gold-leaf); padding: 0.6rem 1.5rem; border-radius: 40px; cursor: pointer; font-size: 0.9rem; color: var(--coffee-brown); font-family: inherit; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
+    .back-btn:hover { background: var(--gold-leaf); color: white; }
+    .poem-full-title { font-family: 'Playfair Display', serif; font-size: 2rem; text-align: center; color: var(--dark-roast); }
+    .poem-full-author { text-align: center; color: var(--old-rose); font-style: italic; margin-bottom: 2rem; }
+    .poem-full-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      line-height: 2;
+      font-style: italic;
+      background: rgba(201,168,107,0.05);
+      padding: 2rem;
+      border-radius: 24px;
+      margin: 1.5rem 0;
+      text-align: left;
+      white-space: pre-line;
+    }
+    .interpretation-card { background: linear-gradient(135deg, #fef8ef 0%, #fff5e8 100%); border-left: 6px solid var(--gold-leaf); border-radius: 20px; padding: 1.2rem 1.5rem; margin: 1.5rem 0; cursor: pointer; }
+    .interpretation-card:hover { transform: scale(1.01); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+    .interpretation-header { display: flex; align-items: center; gap: 0.8rem; cursor: pointer; font-weight: 600; color: var(--coffee-brown); }
+    .interpretation-header i { font-size: 1.4rem; color: var(--gold-leaf); transition: transform 0.3s; }
+    .interpretation-content { display: none; font-size: 0.95rem; line-height: 1.7; text-align: justify; color: #4a3a2a; padding-top: 0.8rem; border-top: 1px dashed var(--gold-leaf); margin-top: 0.5rem; }
+    .interpretation-content.show { display: block; animation: slideDown 0.3s ease; }
+    .interpretation-card.open .interpretation-header i { transform: rotate(180deg); }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    .quiz-section { background: #f0e8dc; border-radius: 24px; padding: 1.5rem; margin: 1.5rem 0; border: 1px solid var(--gold-leaf); }
+    .quiz-title { font-weight: 700; font-size: 1.2rem; color: var(--coffee-brown); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; border-bottom: 2px solid var(--gold-leaf); padding-bottom: 0.5rem; }
+    .quiz-item { background: white; border-radius: 16px; padding: 1rem; margin-bottom: 1rem; }
+    .quiz-question { font-weight: 600; color: var(--dark-roast); margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem; }
+    .quiz-answers { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+    .quiz-option { background: #fef8ef; border: 1px solid var(--gold-leaf); border-radius: 40px; padding: 0.4rem 1rem; font-size: 0.8rem; cursor: pointer; }
+    .quiz-option:hover { background: var(--gold-leaf); color: white; }
+    .quiz-feedback { font-size: 0.8rem; margin-top: 0.5rem; padding: 0.3rem 0.8rem; border-radius: 20px; display: inline-block; }
+    .quiz-feedback.correct { background: #c8e6c9; color: #2e7d32; }
+    .quiz-feedback.wrong { background: #ffcdd2; color: #c62828; }
+    body.dark .quiz-feedback.correct { background: #1b5e20; color: #c8e6c9; }
+    body.dark .quiz-feedback.wrong { background: #b71c1c; color: #ffcdd2; }
+    .about-card { background: white; border-radius: 28px; padding: 2rem; border: 1px solid #efe2d0; }
+    .about-subtitle { font-size: 1.3rem; font-weight: 600; color: var(--coffee-brown); margin: 1.5rem 0 0.8rem 0; }
+    .about-text { font-size: 1rem; line-height: 1.7; text-align: justify; margin-bottom: 1rem; background: #fef8ef; padding: 1rem; border-radius: 20px; }
+    .tools-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1rem 0; justify-content: center; }
+    .tool-item { flex: 1; min-width: 120px; max-width: 160px; background: #fef8ef; border: 1px solid var(--gold-leaf); border-radius: 20px; padding: 1rem; text-align: center; transition: transform 0.2s; }
+    .tool-item:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+    .tool-logo { width: 50px; height: 50px; object-fit: contain; margin: 0 auto 0.5rem auto; display: block; }
+    .tool-name { font-weight: 700; font-size: 1rem; margin-top: 0.5rem; }
+    .tool-desc { font-size: 0.7rem; opacity: 0.8; }
+    .source-list { margin-left: 2rem; margin-bottom: 1rem; }
+    .source-list li { margin: 0.5rem 0; }
+    .developer-note { background: linear-gradient(135deg, #fef8ef 0%, #fff5e8 100%); border-left: 6px solid var(--gold-leaf); padding: 1rem; border-radius: 20px; margin-top: 1rem; font-style: italic; }
+    footer { background: var(--dark-roast); color: #e8cfb5; padding: 2rem; text-align: center; margin-top: 2rem; }
+    .click-hint { font-size: 0.7rem; color: var(--gold-leaf); margin-top: 0.5rem; display: inline-block; }
+    @media (max-width: 780px) { .hero-content h1 { font-size: 1.8rem; } .container { padding: 0 1rem; } .page-btn { padding: 0.3rem 0.8rem; font-size: 0.7rem; } .poem-full-text { font-size: 1rem; padding: 1rem; } .nav-buttons { flex-direction: column; } .nav-btn, .back-btn { width: 100%; justify-content: center; } }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">Deutsch <span>durch die Romantik</span> ✦</div>
+    <div class="page-nav">
+      <button class="page-btn" data-page="home">🏠 HOME</button>
+      <button class="page-btn" data-page="dichter">📖 DIE DICHTER</button>
+      <button class="page-btn" data-page="gedichte-list">📚 GEDICHTE</button>
+      <button class="page-btn" data-page="about">ℹ️ TENTANG</button>
+      <button id="themeToggle" class="btn-elegant"><i class="fas fa-moon"></i> Modus</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <!-- HOME -->
+  <div id="page-home" class="page active-page">
+    <div class="hero"><img class="hero-bg" src="https://images.pexels.com/photos/258117/pexels-photo-258117.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Romantik">
+      <div class="hero-content"><h1>Deutsch durch die Romantik</h1><div class="quote">„Die Welt muss romantisiert werden.“ — Novalis</div>
+        <div style="margin-top:1.5rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+          <button class="page-btn" data-page="dichter" style="background:var(--coffee-brown); color:white;">📖 Dichter entdecken</button>
+          <button class="page-btn" data-page="gedichte-list" style="background:transparent; border:1.5px solid #5c3e2b;">🎭 Gedichte lesen</button>
+        </div>
+      </div>
+    </div>
+    <div class="container"><section><div class="section-title"><i class="fas fa-heart"></i> Willkommen in der Romantik</div>
+      <div class="grid-2"><div class="author-card" style="cursor:default"><h3>✨ Was ist Romantik?</h3><p>Die Romantik war eine Epoche (ca. 1790–1830), in der Gefühl, Natur, Fantasie und Sehnsucht im Mittelpunkt standen. Dichter wie Novalis, Goethe, Heine und Hoffmann schrieben Werke voller Poesie und Mystik.</p></div>
+      <div class="author-card" style="cursor:default"><h3>📚 Deutsch lernen mit Poesie</h3><p>Durch Gedichte lernst du nicht nur Wortschatz, sondern auch die deutsche Seele kennen. Ideal für Niveau A2–B1. Tauche ein in die Welt der Romantik!</p></div></div>
+    </section></div>
+  </div>
+
+  <!-- DIE DICHTER -->
+  <div id="page-dichter" class="page"><div class="container"><section><div class="section-title"><i class="fas fa-feather-alt"></i> Die Dichter der Romantik <span style="font-size:0.8rem;">✨ (Klick auf das Bild → Gedicht)</span></div>
+    <div class="grid-4">
+      <div class="author-card" data-poem="novalis"><img class="author-img" src="https://i.imgur.com/QiC1QaC.jpeg" alt="Novalis"><strong>Novalis</strong><br><small>(Georg Philipp Friedrich von Hardenberg)</small><div class="author-bio">Novalis wurde 1772 in Deutschland geboren. Sein richtiger Name war Georg Philipp Friedrich von Hardenberg. Er war ein wichtiger Schriftsteller der deutschen Romantik. In seinen Werken schrieb er oft über Liebe, Natur, Religion und Fantasie. Sein bekanntestes Werk ist <strong>Hymnen an die Nacht</strong>. Novalis starb schon 1801 im Alter von 28 Jahren.</div><small class="click-hint">📖 Klick → Gedicht</small></div>
+      <div class="author-card" data-poem="goethe"><img class="author-img" src="https://i.imgur.com/pZBmswG.jpeg" alt="Goethe"><strong>Johann Wolfgang von Goethe</strong><br><small>1749–1832</small><div class="author-bio">Goethe wurde 1749 in Frankfurt am Main geboren. Er war Dichter, Schriftsteller und Wissenschaftler. Goethe gehört zu den berühmtesten Autoren Deutschlands. Sein bekanntestes Werk ist <strong>Faust</strong>. Außerdem schrieb er Gedichte, Romane und Theaterstücke. Goethe interessierte sich auch für Naturwissenschaften. Er starb 1832 in Weimar.</div><small class="click-hint">📖 Klick → Gedicht</small></div>
+      <div class="author-card" data-poem="heine"><img class="author-img" src="https://i.imgur.com/zx2F2EF.jpeg" alt="Heine"><strong>Heinrich Heine</strong><br><small>1797–1856</small><div class="author-bio">Heinrich Heine wurde 1797 in Düsseldorf geboren. Er war ein berühmter deutscher Dichter und Journalist. Seine Gedichte sind oft romantisch, aber auch kritisch und humorvoll. Viele seiner Texte wurden später zu Liedern gemacht. Wegen politischer Probleme lebte Heine lange Zeit in Paris. Er starb 1856.</div><small class="click-hint">📖 Klick → Gedicht</small></div>
+      <div class="author-card" data-poem="eichendorff"><img class="author-img" src="https://i.imgur.com/65XY6JZ.jpeg" alt="Hoffmann"><strong>E.T.A. Hoffmann</strong><br><small>1776–1822</small><div class="author-bio">E. T. A. Hoffmann wurde 1776 geboren. Er war Schriftsteller, Komponist und Jurist. Hoffmann ist bekannt für fantastische und geheimnisvolle Geschichten. Viele seiner Werke handeln von Träumen, Fantasie und dem Übernatürlichen. Ein berühmtes Werk von ihm ist <strong>Der Sandmann</strong>. Er starb 1822 in Berlin.</div><small class="click-hint">📖 Klick → Gedicht</small></div>
+    </div>
+  </section></div></div>
+
+  <!-- DAFTAR PUISI -->
+  <div id="page-gedichte-list" class="page">
+    <div class="container">
+      <section>
+        <div class="section-title"><i class="fas fa-music"></i> Gedichte der Romantik</div>
+        <div class="grid-2">
+          <div class="poem-menu-card" data-poem="eichendorff"><div class="poem-menu-icon"><i class="fas fa-moon"></i></div><h3>„Mondnacht“</h3><p>Joseph von Eichendorff</p></div>
+          <div class="poem-menu-card" data-poem="heine"><div class="poem-menu-icon"><i class="fas fa-water"></i></div><h3>„Die Loreley“</h3><p>Heinrich Heine</p></div>
+          <div class="poem-menu-card" data-poem="goethe"><div class="poem-menu-icon"><i class="fas fa-book"></i></div><h3>„Faust“</h3><p>Johann Wolfgang von Goethe</p></div>
+          <div class="poem-menu-card" data-poem="novalis"><div class="poem-menu-icon"><i class="fas fa-star"></i></div><h3>„Hymnen an die Nacht“</h3><p>Novalis</p></div>
+        </div>
+        <div class="nav-buttons" style="margin-top: 2rem; justify-content: center;">
+          <button class="nav-btn" data-prev-list="novalis"><i class="fas fa-arrow-left"></i> Vorheriges Gedicht</button>
+          <button class="nav-btn" data-back-dichter="dichter"><i class="fas fa-users"></i> Zu den Dichtern</button>
+          <button class="nav-btn" data-next-list="eichendorff"><i class="fas fa-arrow-right"></i> Nächste Gedicht</button>
+        </div>
+        <p style="text-align: center; margin-top: 0.8rem; font-size: 0.8rem; color: var(--gold-leaf);"><i class="fas fa-hand-pointer"></i> Oder klicke direkt auf ein Gedicht oben</p>
+      </section>
+    </div>
+  </div>
+
+  <!-- TENTANG WEBSITE dengan LOGO ASLI (DeepSeek, ChatGPT, Imgur) -->
+  <div id="page-about" class="page">
+    <div class="container">
+      <section>
+        <div class="section-title"><i class="fas fa-info-circle"></i> Tentang Website</div>
+        <div class="about-card">
+          <div class="about-text">Website ini dibuat sebagai proyek UAS untuk mata kuliah <strong>Analoge und Digitale Medien im Deutschunterricht</strong>. Tujuan dari website ini adalah untuk mengembangkan media pembelajaran interaktif yang membantu mahasiswa memahami sastra Jerman, biografi penulis, serta interpretasi puisi dengan lebih mudah dan menarik melalui media digital.</div>
+          <div class="about-text">Website ini berisi informasi mengenai penulis-penulis Jerman terkenal, karya sastra populer, materi pembelajaran, interpretasi puisi, serta latihan soal yang berkaitan dengan puisi dan sastra Jerman. Dengan desain yang interaktif, website ini diharapkan dapat membuat pembelajaran sastra dan puisi menjadi lebih modern, menarik, dan mudah dipahami.</div>
+          <div class="about-text">Isi, desain, dan pengembangan website ini dibuat serta diedit dengan bantuan berbagai tools berbasis AI.</div>
+          <div class="about-subtitle"><i class="fas fa-tools"></i> Tools yang Digunakan</div>
+          <div class="tools-grid">
+            <div class="tool-item"><img class="tool-logo" src="https://cdn.simpleicons.org/deepseek/4D6BFE" alt="DeepSeek Logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/DeepSeek_logo.svg/120px-DeepSeek_logo.svg.png'"><div class="tool-name">DeepSeek</div><div class="tool-desc">Pemrograman</div></div>
+            <div class="tool-item"><img class="tool-logo" src="https://cdn.simpleicons.org/openai/10A37F" alt="ChatGPT Logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/120px-ChatGPT_logo.svg.png'"><div class="tool-name">ChatGPT</div><div class="tool-desc">Materi & Ide</div></div>
+            <div class="tool-item"><img class="tool-logo" src="https://cdn.simpleicons.org/imgur/1BB76E" alt="Imgur Logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Imgur_logo.svg/120px-Imgur_logo.svg.png'"><div class="tool-name">Imgur</div><div class="tool-desc">Gambar</div></div>
+          </div>
+          <div class="about-subtitle"><i class="fas fa-book"></i> Sumber</div>
+          <ul class="source-list"><li>Karya-karya Johann Wolfgang von Goethe</li><li>Karya-karya Novalis</li><li>Karya-karya Heinrich Heine</li><li>Karya-karya E. T. A. Hoffmann</li><li>Goethe-Institut & Projekt Gutenberg</li></ul>
+          <div class="about-subtitle"><i class="fas fa-user"></i> Pengembang</div>
+          <div class="developer-note">Dikembangkan oleh <strong>Dhyvvi</strong> sebagai media pembelajaran interaktif sastra dan puisi Jerman.</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- PUISI EICHENDORFF -->
+  <div id="page-poem-eichendorff" class="page"><div class="poem-page-container">
+    <button class="back-btn" data-back="gedichte-list"><i class="fas fa-arrow-left"></i> Zurück zu Gedichten</button>
+    <div class="poem-full-card">
+      <div class="poem-full-title">„Mondnacht“</div>
+      <div class="poem-full-author">— Joseph von Eichendorff —</div>
+      <div class="poem-full-text">
+Es war, als hätt der Himmel
+Die Erde still geküsst,
+Dass sie im Blütenschimmer
+Von ihm nun träumen müsst.
+
+Die Luft ging durch die Felder,
+Die Ähren wogten sacht,
+Es rauschten leis die Wälder,
+So sternklar war die Nacht.
+
+Und meine Seele spannte
+Weit ihre Flügel aus,
+Flog durch die stillen Lande,
+Als flöge sie nach Haus.
+      </div>
+      <div class="interpretation-card" onclick="toggleInterpretation(this)"><div class="interpretation-header"><i class="fas fa-lightbulb"></i><span>📖 Interpretation & Analyse — Klick zum Aufklappen</span></div><div class="interpretation-content"><strong>Interpretation „Mondnacht“ – Joseph von Eichendorff</strong><br><br>Puisi <strong>„Mondnacht“</strong> menggambarkan hubungan harmonis antara alam dan jiwa manusia. Langit yang <strong>“mencium bumi”</strong> melambangkan persatuan antara dunia spiritual dan dunia nyata. Suasana malam yang tenang menciptakan perasaan damai dan penuh kerinduan.<br><br>Pada bagian akhir, jiwa penyair digambarkan seperti terbang pulang ke rumah. <strong>“Rumah”</strong> di sini bukan hanya tempat fisik, tetapi simbol ketenangan batin dan kedekatan dengan Tuhan atau dunia spiritual.<br><br><strong>Tema utama puisi ini adalah Sehnsucht</strong>, yaitu kerinduan mendalam khas era Romantik.</div></div>
+      <div class="quiz-section"><div class="quiz-title"><i class="fas fa-question-circle"></i> Verständnisfragen zum Gedicht</div>
+        <div class="quiz-item" data-correct="Joseph von Eichendorff"><div class="quiz-question">1. Wer schrieb das Gedicht „Mondnacht“?</div><div class="quiz-answers"><span class="quiz-option">Joseph von Eichendorff</span><span class="quiz-option">Goethe</span><span class="quiz-option">Heine</span></div><div class="quiz-feedback"></div></div>
+        <div class="quiz-item" data-correct="Romantik"><div class="quiz-question">2. Zu welcher Literaturepoche gehört Eichendorff?</div><div class="quiz-answers"><span class="quiz-option">Klassik</span><span class="quiz-option">Romantik</span><span class="quiz-option">Barock</span></div><div class="quiz-feedback"></div></div>
+        <div class="quiz-item" data-correct="friedlich und verträumt"><div class="quiz-question">3. Welche Atmosphäre hat das Gedicht?</div><div class="quiz-answers"><span class="quiz-option">traurig</span><span class="quiz-option">friedlich und verträumt</span><span class="quiz-option">wütend</span></div><div class="quiz-feedback"></div></div>
+        <div class="quiz-item" data-correct="die Verbindung von Himmel und Erde"><div class="quiz-question">4. Was symbolisiert der Kuss zwischen Himmel und Erde?</div><div class="quiz-answers"><span class="quiz-option">Krieg</span><span class="quiz-option">die Verbindung von Himmel und Erde</span><span class="quiz-option">Trennung</span></div><div class="quiz-feedback"></div></div>
+        <div class="quiz-item" data-correct="die Rückkehr der Seele in die Heimat"><div class="quiz-question">5. Was bedeutet die letzte Zeile „als flöge sie nach Haus“?</div><div class="quiz-answers"><span class="quiz-option">Vogel fliegt heim</span><span class="quiz-option">die Rückkehr der Seele</span><span class="quiz-option">Dichter geht schlafen</span></div><div class="quiz-feedback"></div></div>
+      </div>
+      <div class="nav-buttons">
+        <button class="nav-btn" data-prev="heine"><i class="fas fa-arrow-left"></i> Vorheriges Gedicht</button>
+        <button class="nav-btn" data-back-dichter="dichter"><i class="fas fa-users"></i> Zu den Dichtern</button>
+        <button class="nav-btn" data-next="heine"><i class="fas fa-arrow-right"></i> Nächste Gedicht</button>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- PUISI HEINE -->
+  <div id="page-poem-heine" class="page"><div class="poem-page-container">
+    <button class="back-btn" data-back="gedichte-list"><i class="fas fa-arrow-left"></i> Zurück zu Gedichten</button>
+    <div class="poem-full-card">
+      <div class="poem-full-title">„Die Loreley“</div>
+      <div class="poem-full-author">— Heinrich Heine —</div>
+      <div class="poem-full-text">
+Ich weiß nicht, was soll es bedeuten,
+Dass ich so traurig bin;
+Ein Märchen aus alten Zeiten,
+Das kommt mir nicht aus dem Sinn.
+
+Die Luft ist kühl und es dunkelt,
+Und ruhig fließt der Rhein;
+Der Gipfel des Berges funkelt
+Im Abendsonnenschein.
+      </div>
+      <div class="interpretation-card" onclick="toggleInterpretation(this)"><div class="interpretation-header"><i class="fas fa-lightbulb"></i><span>📖 Interpretation & Analyse</span></div><div class="interpretation-content"><strong>Interpretation „Die Loreley“ – Heinrich Heine</strong><br><br>Puisi ini menggambarkan legenda seorang wanita cantik bernama <strong>Loreley</strong> yang memiliki suara sangat memikat. Para pelaut yang mendengar nyanyiannya menjadi tidak fokus hingga kapal mereka tenggelam di Sungai Rhein.<br><br><strong>Loreley</strong> dapat diartikan sebagai simbol keindahan yang berbahaya. Heine menunjukkan bahwa sesuatu yang indah tidak selalu membawa kebahagiaan, tetapi juga bisa membawa kehancuran. Suasana puisi terasa misterius, melankolis, dan penuh imajinasi.</div></div>
+      <div class="quiz-section"><div class="quiz-title"><i class="fas fa-question-circle"></i> Verständnisfragen</div>
+        <div class="quiz-item" data-correct="Düsseldorf"><div class="quiz-question">1. Wo wurde Heinrich Heine geboren?</div><div class="quiz-answers"><span class="quiz-option">Berlin</span><span class="quiz-option">Düsseldorf</span><span class="quiz-option">Frankfurt</span></div><div class="quiz-feedback"></div></div>
+        <div class="quiz-item" data-correct="eine schöne Frau mit zauberhafter Stimme"><div class="quiz-question">2. Wer ist Loreley im Gedicht?</div><div class="quiz-answers"><span class="quiz-option">Göttin</span><span class="quiz-option">schöne Frau mit Zauberstimme</span><span class="quiz-option">Wassergeist</span></div><div class="quiz-feedback"></div></div>
+        <div class="quiz-item" data-correct="weil sie von ihrem Gesang abgelenkt werden"><div class="quiz-question">3. Warum geraten die Schiffer in Gefahr?</div><div class="quiz-answers"><span class="quiz-option">Sturm</span><span class="quiz-option">vom Gesang abgelenkt</span><span class="quiz-option">Rhein überflutet</span></div><div class="quiz-feedback"></div></div>
+        <div class="quiz-item" data-correct="die gefährliche Schönheit"><div class="quiz-question">4. Was symbolisiert Loreley?</div><div class="quiz-answers"><span class="quiz-option">gefährliche Schönheit</span><span class="quiz-option">reine Liebe</span><span class="quiz-option">Naturgewalt</span></div><div class="quiz-feedback"></div></div>
+        <div class="quiz-item" data-correct="melancholisch und geheimnisvoll"><div class="quiz-question">5. Welche Stimmung hat das Gedicht?</div><div class="quiz-answers"><span class="quiz-option">fröhlich</span><span class="quiz-option">melancholisch und geheimnisvoll</span><span class="quiz-option">wütend</span></div><div class="quiz-feedback"></div></div>
+      </div>
+      <div class="nav-buttons">
+        <button class="nav-btn" data-prev="eichendorff"><i class="fas fa-arrow-left"></i> Vorheriges Gedicht</button>
+        <button class="nav-btn" data-back-dichter="dichter"><i class="fas fa-users"></i> Zu den Dichtern</button>
+        <button class="nav-btn" data-next="goethe"><i class="fas fa-arrow-right"></i> Nächste Gedicht</button>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- PUISI GOETHE -->
+  <div id="page-poem-goethe" class="page"><div class="poem-page-container">
+    <button class="back-btn" data-back="gedichte-list"><i class="fas fa-arrow-left"></i> Zurück zu Gedichten</button>
+    <div class="poem-full-card">
+      <div class="poem-full-title">„Faust“</div>
+      <div class="poem-full-author">— Johann Wolfgang von Goethe —</div>
+      <div class="poem-full-text">
+Habe nun, ach! Philosophie,
+Juristerei und Medizin,
+Und leider auch Theologie
+Durchaus studiert, mit heißem Bemühn.
+
+Da steh ich nun, ich armer Tor!
+Und bin so klug als wie zuvor.
+      </div>
+      <div class="interpretation-card" onclick="toggleInterpretation(this)"><div class="interpretation-header"><i class="fas fa-lightbulb"></i><span>📖 Interpretation & Analyse</span></div><div class="interpretation-content"><strong>Interpretation „Faust“ – Johann Wolfgang von Goethe</strong><br><br>Dalam kutipan ini, <strong>Faust</strong> merasa kecewa karena setelah mempelajari banyak ilmu, ia tetap merasa tidak benar-benar memahami kehidupan. Ia merasa kosong dan tidak puas.<br><br>Goethe ingin menunjukkan bahwa pengetahuan saja tidak cukup untuk membuat manusia bahagia. Manusia selalu memiliki rasa ingin tahu dan keinginan untuk mencari makna hidup yang lebih dalam.<br><br><strong>Tema utama karya ini adalah ambisi manusia, pencarian makna hidup, dan batas kemampuan manusia.</strong></div></div>
+      <div class="quiz-section"><div class="quiz-title"><i class="fas fa-question-circle"></i> Verständnisfragen</div>
+        <div class="quiz-item" data-correct="1749"><div class="quiz-question">1. Wann wurde Goethe geboren?</div><div class="quiz-answers"><span class="quiz-option">1749</span><span class="quiz-option">1772</span><span class="quiz-option">1797</span></div><div class="quiz-feedback"></div></div>
+        <div class="quiz-item" data-correct="weil er das Wesentliche im Leben nicht versteht"><div class="quiz-question">2. Warum ist Faust trotz seines Wissens unzufrieden?</div><div class="quiz-answers"><span class="quiz-option">zu wenig Bücher</span><span class="quiz-option">das Wesentliche nicht verstanden</span><span class="quiz-option">keine Freunde</span></div><div class="quiz-feedback"></div></div>
+        <div class="quiz-item" data-correct="Philosophie, Jura, Medizin, Theologie"><div class="quiz-question">3. Welche Fächer hat Faust studiert?</div><div class="quiz-answers"><span class="quiz-option">nur Philo+Jura</span><span class="quiz-option">Philo, Jura, Medizin, Theologie</span><span class="quiz-option">nur Medizin+Theo</span></div><div class="quiz-feedback"></div></div>
+        <div class="quiz-item" data-correct="dass Wissen allein nicht glücklich macht"><div class="quiz-question">4. Was möchte Goethe mit der Figur Faust zeigen?</div><div class="quiz-answers"><span class="quiz-option">Wissen macht glücklich</span><span class="quiz-option">Wissen allein nicht glücklich</span><span class="quiz-option">Reichtum ist Ziel</span></div><div class="quiz-feedback"></div></div>
+        <div class="quiz-item" data-correct="Wissensdurst und Unzufriedenheit"><div class="quiz-question">5. Welches Hauptthema hat „Faust“?</div><div class="quiz-answers"><span class="quiz-option">Liebe</span><span class="quiz-option">Wissensdurst & Unzufriedenheit</span><span class="quiz-option">Krieg</span></div><div class="quiz-feedback"></div></div>
+      </div>
+      <div class="nav-buttons">
+        <button class="nav-btn" data-prev="heine"><i class="fas fa-arrow-left"></i> Vorheriges Gedicht</button>
+        <button class="nav-btn" data-back-dichter="dichter"><i class="fas fa-users"></i> Zu den Dichtern</button>
+        <button class="nav-btn" data-next="novalis"><i class="fas fa-arrow-right"></i> Nächste Gedicht</button>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- PUISI NOVALIS -->
+  <div id="page-poem-novalis" class="page"><div class="poem-page-container">
+    <button class="back-btn" data-back="gedichte-list"><i class="fas fa-arrow-left"></i> Zurück zu Gedichten</button>
+    <div class="poem-full-card">
+      <div class="poem-full-title">„Hymnen an die Nacht“</div>
+      <div class="poem-full-author">— Novalis —</div>
+      <div class="poem-full-text">
+Hinunter in der Erde Schoß,
+Weg aus des Lichtes Reichen,
+Trauer und Schmerz und Sehnsucht groß
+In ewige Nacht zu tauchen.
+
+Die Nacht ist das Leben der Liebe,
+Und Liebe ist der Seele Traum.
+      </div>
+      <div class="interpretation-card" onclick="toggleInterpretation(this)"><div class="interpretation-header"><i class="fas fa-lightbulb"></i><span>📖 Interpretation & Analyse</span></div><div class="interpretation-content"><strong>Interpretation „Hymnen an die Nacht“ – Novalis</strong><br><br>Novalis menggambarkan <strong>malam</strong> sebagai simbol ketenangan, cinta, dan dunia spiritual. Berbeda dari pandangan biasa yang menganggap malam sebagai sesuatu yang gelap atau menakutkan, dalam puisi ini malam justru menjadi tempat pelarian dari penderitaan dunia.<br><br>Karya ini dipengaruhi oleh kesedihan Novalis setelah kehilangan tunangannya. Oleh karena itu, puisi ini penuh dengan suasana emosional, religius, dan melankolis.<br><br><strong>Tema utamanya adalah cinta, kematian, dan harapan akan kehidupan spiritual yang abadi.</strong></div></div>
+      <div class="quiz-section"><div class="quiz-title"><i class="fas fa-question-circle"></i> Verständnisfragen</div>
+        <div class="quiz-item" data-correct="Georg Philipp Friedrich von Hardenberg"><div class="quiz-question">1. Wie heißt Novalis mit richtigem Namen?</div><div class="quiz-answers"><span class="quiz-option">Friedrich Schiller</span><span class="quiz-option">Georg Philipp Friedrich von Hardenberg</span><span class="quiz-option">Goethe</span></div><div class="quiz-feedback"></div></div>
+        <div class="quiz-item" data-correct="weil seine Verlobte starb"><div class="quiz-question">2. Warum schrieb Novalis „Hymnen an die Nacht“?</div><div class="quiz-answers"><span class="quiz-option">weil seine Verlobte starb</span><span class="quiz-option">weil er Dunkelheit liebte</span><span class="quiz-option">Auftrag</span></div><div class="quiz-feedback"></div></div>
+        <div class="quiz-item" data-correct="Ruhe, Liebe und Spiritualität"><div class="quiz-question">3. Was symbolisiert die Nacht in diesem Werk?</div><div class="quiz-answers"><span class="quiz-option">Tod</span><span class="quiz-option">Ruhe, Liebe, Spiritualität</span><span class="quiz-option">Angst</span></div><div class="quiz-feedback"></div></div>
+        <div class="quiz-item" data-correct="Trauer, Schmerz und Sehnsucht"><div class="quiz-question">4. Welche Gefühle zeigt das Werk?</div><div class="quiz-answers"><span class="quiz-option">Freude</span><span class="quiz-option">Trauer, Schmerz, Sehnsucht</span><span class="quiz-option">Stolz</span></div><div class="quiz-feedback"></div></div>
+        <div class="quiz-item" data-correct="Liebe, Tod, Spiritualität"><div class="quiz-question">5. Welche Themen sind typisch für die Romantik?</div><div class="quiz-answers"><span class="quiz-option">Technologie</span><span class="quiz-option">Liebe, Tod, Spiritualität</span><span class="quiz-option">Krieg</span></div><div class="quiz-feedback"></div></div>
+      </div>
+      <div class="nav-buttons">
+        <button class="nav-btn" data-prev="goethe"><i class="fas fa-arrow-left"></i> Vorheriges Gedicht</button>
+        <button class="nav-btn" data-back-dichter="dichter"><i class="fas fa-users"></i> Zu den Dichtern</button>
+        <button class="nav-btn" data-next="eichendorff"><i class="fas fa-arrow-right"></i> Nächste Gedicht</button>
+      </div>
+    </div>
+  </div></div>
+</main>
+
+<footer><p>„Die Poesie ist die Muttersprache des Menschengeschlechts.“ — Novalis</p><div><i class="fas fa-feather-alt"></i> <i class="fas fa-moon"></i> <i class="fas fa-tree"></i></div></footer>
+
+<script>
+  function toggleInterpretation(card) {
+    const content = card.querySelector('.interpretation-content');
+    if (content) { content.classList.toggle('show'); card.classList.toggle('open'); }
+  }
+  
+  document.querySelectorAll('.quiz-item').forEach(item => {
+    const correctAnswer = item.getAttribute('data-correct');
+    const options = item.querySelectorAll('.quiz-option');
+    const feedbackDiv = item.querySelector('.quiz-feedback');
+    options.forEach(opt => {
+      opt.addEventListener('click', () => {
+        const selected = opt.textContent;
+        if (selected === correctAnswer) {
+          feedbackDiv.innerHTML = '✅ Richtig!';
+          feedbackDiv.className = 'quiz-feedback correct';
+        } else {
+          feedbackDiv.innerHTML = `❌ Falsch. Richtige Antwort: ${correctAnswer}`;
+          feedbackDiv.className = 'quiz-feedback wrong';
+        }
+      });
+    });
+  });
+  
+  const pages = {
+    home: document.getElementById('page-home'),
+    dichter: document.getElementById('page-dichter'),
+    'gedichte-list': document.getElementById('page-gedichte-list'),
+    about: document.getElementById('page-about'),
+    'poem-eichendorff': document.getElementById('page-poem-eichendorff'),
+    'poem-heine': document.getElementById('page-poem-heine'),
+    'poem-goethe': document.getElementById('page-poem-goethe'),
+    'poem-novalis': document.getElementById('page-poem-novalis')
+  };
+  
+  function showPage(pageId) {
+    Object.values(pages).forEach(p => { if(p) p.classList.remove('active-page'); });
+    if(pages[pageId]) pages[pageId].classList.add('active-page');
+    document.querySelectorAll('.page-btn').forEach(btn => {
+      const bp = btn.getAttribute('data-page');
+      if(bp === pageId || (pageId.startsWith('poem-') && bp === 'gedichte-list')) btn.classList.add('active');
+      else btn.classList.remove('active');
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  
+  document.querySelectorAll('.page-btn').forEach(btn => {
+    const pid = btn.getAttribute('data-page');
+    if(pid && pages[pid]) btn.addEventListener('click', () => showPage(pid));
+  });
+  
+  document.querySelectorAll('.back-btn').forEach(btn => {
+    const back = btn.getAttribute('data-back');
+    btn.addEventListener('click', () => showPage(back));
+  });
+  
+  document.querySelectorAll('.nav-btn[data-next]').forEach(btn => {
+    const nextPoem = btn.getAttribute('data-next');
+    btn.addEventListener('click', () => showPage(`poem-${nextPoem}`));
+  });
+  document.querySelectorAll('.nav-btn[data-prev]').forEach(btn => {
+    const prevPoem = btn.getAttribute('data-prev');
+    btn.addEventListener('click', () => showPage(`poem-${prevPoem}`));
+  });
+  document.querySelectorAll('.nav-btn[data-next-list]').forEach(btn => {
+    const nextPoem = btn.getAttribute('data-next-list');
+    btn.addEventListener('click', () => showPage(`poem-${nextPoem}`));
+  });
+  document.querySelectorAll('.nav-btn[data-prev-list]').forEach(btn => {
+    const prevPoem = btn.getAttribute('data-prev-list');
+    btn.addEventListener('click', () => showPage(`poem-${prevPoem}`));
+  });
+  document.querySelectorAll('.nav-btn[data-back-dichter]').forEach(btn => {
+    btn.addEventListener('click', () => showPage('dichter'));
+  });
+  
+  document.querySelectorAll('.author-card[data-poem], .poem-menu-card[data-poem]').forEach(card => {
+    card.addEventListener('click', () => { const poem = card.getAttribute('data-poem'); showPage(`poem-${poem}`); });
+  });
+  
+  const themeToggle = document.getElementById('themeToggle');
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i> Modus' : '<i class="fas fa-moon"></i> Modus';
+  });
+</script>
+</body>
+</html>
